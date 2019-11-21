@@ -62,6 +62,10 @@ public class NeutronQoSHandler {
         connection.setRequestMethod("PUT");
         connection.setRequestProperty("Accept", "application/json");
         connection.setRequestProperty("Content-Type", "application/json");
+      } else if (method.equals("POST")) {
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setRequestProperty("Content-Type", "application/json");
       } else if (method.equals("DELETE")) {
         connection.setRequestMethod("DELETE");
         connection.setRequestProperty("Accept", "application/json");
