@@ -168,16 +168,16 @@ public class NeutronQoSExecutor implements Runnable {
                 // Creating the not existing QoS policy
                 String created_pol_id = this.createQoSPolicy(creds, neutron_handler, r, token);
                 // Since we now have the correct id of the policy , lets create the bandwidth rule
-                //createBandwidthRule(creds, created_pol_id, neutron_handler, bandwidth, token);
+                createBandwidthRule(creds, created_pol_id, neutron_handler, bandwidth, token);
 
                 // We need to distinguish in the type! bandwidth_limit_rule
-                if (r.getQuality().getType().equals("bandwidth_limit_rule")){
-                  createBandwidthRule(creds, created_pol_id, neutron_handler, bandwidth, r.getQuality().getType(), r.getQuality().getBurst(),r.getQuality().getDirection(), token);
-                } else if (r.getQuality().getType().equals("minimum_bandwidth_rule")){
+                //if (r.getQuality().getType().equals("bandwidth_limit_rule")){
+                //  createBandwidthRule(creds, created_pol_id, neutron_handler, bandwidth, r.getQuality().getType(), r.getQuality().getBurst(),r.getQuality().getDirection(), token);
+                //} else if (r.getQuality().getType().equals("minimum_bandwidth_rule")){
 
-                } else {
-                  logger.error("Rule type "+r.getQuality().getType()+ " not supported");
-                }
+                //} else {
+                //  logger.error("Rule type "+r.getQuality().getType()+ " not supported");
+                //}
               } else {
                 // At least print a warning here if the policy bandwidth rule differs from the one we wanted to create,
                 // this means a user touched it already
